@@ -1,0 +1,226 @@
+/* ==========================================================================
+   3D RAILWAY WORLD SCENE STYLES
+   Phase 2: Immersive 3D Railway Environment & Cinematic HUD
+   ========================================================================== */
+
+.main-scene {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-bg-base);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: clamp(1.2rem, 3.5vh, 2.5rem) clamp(1.5rem, 4vw, 3.5rem);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: var(--z-main-scene);
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 1.2s ease;
+  overflow: hidden;
+}
+
+.main-scene.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  touch-action: none;
+  overscroll-behavior: none;
+}
+
+/* --------------------------------------------------------------------------
+   WebGL Canvas Mount Point
+   -------------------------------------------------------------------------- */
+.webgl-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.webgl-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Cinematic Telemetry HUD (Overlaid on 3D Canvas)
+   -------------------------------------------------------------------------- */
+.scene-header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.scene-terminal-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-station-signage);
+  font-size: clamp(0.72rem, 1vw, 0.88rem);
+  letter-spacing: 0.28em;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+.status-beacon {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--color-accent-cyan);
+  box-shadow: 0 0 10px var(--color-accent-cyan);
+  animation: beaconBlink 2.2s infinite ease-in-out;
+}
+
+@keyframes beaconBlink {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.scene-header-actions {
+  pointer-events: auto;
+}
+
+.scene-audio-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-tech-label);
+  font-size: clamp(0.65rem, 0.9vw, 0.75rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  background: rgba(12, 16, 23, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 2px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.scene-audio-btn:hover {
+  color: #ffffff;
+  border-color: var(--color-accent-cyan);
+  box-shadow: 0 0 16px rgba(100, 210, 255, 0.3);
+}
+
+.audio-pulse-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-accent-cyan);
+  box-shadow: 0 0 6px var(--color-accent-cyan);
+}
+
+.scene-audio-btn.is-muted .audio-pulse-indicator {
+  background-color: var(--color-text-muted);
+  box-shadow: none;
+}
+
+/* --------------------------------------------------------------------------
+   Subtle Cinematic Center Tag
+   -------------------------------------------------------------------------- */
+.scene-telemetry-overlay {
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.65;
+  transition: opacity 0.5s ease;
+}
+
+.telemetry-rail-tag {
+  font-family: var(--font-station-signage);
+  font-size: clamp(0.65rem, 0.85vw, 0.74rem);
+  letter-spacing: 0.32em;
+  color: var(--color-accent-cyan);
+  padding: 0.35rem 1.1rem;
+  background: rgba(5, 8, 14, 0.5);
+  border: 1px solid rgba(100, 210, 255, 0.18);
+  border-radius: 2px;
+  backdrop-filter: blur(8px);
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   Telemetry Footer & Replay Action
+   -------------------------------------------------------------------------- */
+.scene-footer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.scene-coordinates {
+  font-family: var(--font-tech-label);
+  font-size: clamp(0.64rem, 0.8vw, 0.72rem);
+  letter-spacing: 0.22em;
+  color: var(--color-text-muted);
+}
+
+.replay-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.25rem;
+  font-family: var(--font-ui-enter);
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 2px;
+  background: rgba(12, 16, 23, 0.68);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all 0.35s ease;
+}
+
+.replay-button:hover {
+  color: #ffffff;
+  border-color: var(--color-accent-cyan);
+  box-shadow: 0 0 18px rgba(100, 210, 255, 0.35);
+  transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Mobile Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .main-scene {
+    padding: 1.2rem;
+  }
+
+  .scene-terminal-tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+  }
+
+  .scene-coordinates {
+    display: none; /* Hide cluttered text on narrow phones */
+  }
+
+  .telemetry-rail-tag {
+    font-size: 0.58rem;
+  }
+
+  .scene-footer {
+    justify-content: flex-end;
+  }
+}

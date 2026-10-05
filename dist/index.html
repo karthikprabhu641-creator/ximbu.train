@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cinematic Railway Journey | Interactive Portfolio</title>
+  <meta name="description" content="An immersive cinematic railway journey portfolio. Enter through the cinematic arrival portal into an interactive digital odyssey.">
+
+  <!-- Typography Fonts (Google Fonts CDN with local fallback) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Orbitron:wght@700;900&family=Space+Grotesk:wght@500;700&family=Syncopate:wght@700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Core Design System & Modular Styles -->
+  <!-- Three.js Import Map -->
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://esm.sh/three@0.160.0",
+      "three/addons/": "https://esm.sh/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" crossorigin src="/assets/index-Co73dfkT.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-YuZdDDnZ.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       STAGE 1: CINEMATIC WELCOME SCREEN
+       ======================================================================== -->
+  <section id="welcome-screen" class="welcome-screen" aria-label="Welcome Entrance Portal">
+    <!-- Atmospheric Ambient Video Layer -->
+    <div class="bg-video-wrapper">
+      <video id="bg-video" class="bg-video" autoplay loop muted playsinline preload="auto">
+        <source src="/assets/welcome_bg-BAlwPRQt.mp4" type="video/mp4">
+      </video>
+      <!-- Cinematic Vignette & Micro Grain Filter Layers -->
+      <div class="bg-vignette"></div>
+      <div class="bg-film-grain"></div>
+    </div>
+
+    <!-- Center Stage Typography & Enter Action (Abundant Negative Space) -->
+    <main class="welcome-container">
+      <div class="welcome-title-wrapper">
+        <h1 id="welcome-title" class="welcome-title" data-text="WELCOME">WELCOME</h1>
+      </div>
+
+      <!-- Minimal ENTER Action (Abundant Negative Space) -->
+      <div class="enter-button-wrapper">
+        <button id="enter-button" class="enter-button" aria-label="Enter Railway World">
+          ENTER
+        </button>
+      </div>
+    </main>
+
+    <!-- Cinematic Audio Toggle (Mute / Play Background Video Soundtrack) -->
+    <div class="welcome-audio-control">
+      <button id="audio-toggle" class="audio-toggle-btn" aria-label="Toggle Soundtrack Audio" type="button">
+        <span class="audio-bars" aria-hidden="true">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </span>
+        <span id="audio-toggle-text" class="audio-toggle-text">SOUND // OFF</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CINEMATIC DIGITAL TRANSITION LAYERS
+       ======================================================================== -->
+  <!-- Wire Lines FX Layer -->
+  <div id="wire-lines-layer" class="wire-lines-layer" aria-hidden="true">
+    <div class="wire-line-h"></div>
+    <div class="wire-line-h"></div>
+    <div class="wire-line-h"></div>
+    <div class="wire-grid-perspective"></div>
+  </div>
+
+  <!-- Glitch Fragments FX Layer -->
+  <div id="glitch-fragments-layer" class="glitch-fragments-layer" aria-hidden="true">
+    <div class="glitch-slice"></div>
+    <div class="glitch-slice"></div>
+    <div class="glitch-slice"></div>
+  </div>
+
+  <!-- White / Blue Flash Bloom Layer -->
+  <div id="flash-overlay" class="flash-overlay" aria-hidden="true"></div>
+
+  <!-- ========================================================================
+       STAGE 2: 3D CINEMATIC RAILWAY WORLD (Phase 2)
+       ======================================================================== -->
+  <section id="main-scene" class="main-scene" aria-label="3D Railway Environment">
+    <!-- Dedicated Mount Point for Three.js Canvas -->
+    <div id="webgl-canvas-container" class="webgl-container"></div>
+
+    <!-- Cinematic Minimal Telemetry HUD -->
+    <header class="scene-header">
+      <div class="scene-terminal-tag">
+        <span class="status-beacon"></span>
+        <span>CORRIDOR 01 // KINETIC EXPEDITION</span>
+      </div>
+      <div class="scene-header-actions">
+        <button id="scene-audio-toggle" class="scene-audio-btn" aria-label="Toggle Railway Audio" type="button">
+          <span class="audio-pulse-indicator"></span>
+          <span id="scene-audio-text">AUDIO // ON</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Subtle Centered Travel HUD (Cinematic & Non-intrusive) -->
+    <div class="scene-telemetry-overlay">
+      <div class="telemetry-rail-tag">PHASE 3 // SCROLL TO TRAVEL</div>
+    </div>
+
+    <!-- Telemetry Footer & Entrance Replay Controller -->
+    <footer class="scene-footer">
+      <div class="scene-coordinates">SPEED: 0.0 M/S | STOP | ROUTE: 2%</div>
+      <button id="replay-button" class="replay-button" aria-label="Return to Welcome Screen">
+        <span>↻ REPLAY ENTRANCE</span>
+      </button>
+    </footer>
+  </section>
+
+  <!-- Modular Application Scripts -->
+
+  <!-- Local file:// protocol detection helper -->
+  <script>
+    if (window.location.protocol === 'file:') {
+      window.addEventListener('DOMContentLoaded', () => {
+        const note = document.createElement('div');
+        note.style.cssText = 'position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:rgba(8,14,24,0.95);border:1px solid #64d2ff;color:#e2e8f0;padding:10px 20px;border-radius:6px;z-index:99999;font-family:sans-serif;font-size:13px;text-align:center;box-shadow:0 0 20px rgba(0,229,255,0.4);';
+        note.innerHTML = '<span style="color:#00e5ff;font-weight:700;">NOTE:</span> Browsers block ES modules on <code>file://</code> URLs. Launch with <b>npm run dev</b> or double-click <b>start.bat</b>!';
+        document.body.appendChild(note);
+      });
+    }
+  </script>
+</body>
+</html>

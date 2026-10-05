@@ -1,0 +1,131 @@
+/* ==========================================================================
+   RAILWAY JOURNEY PORTFOLIO - DESIGN TOKENS & SYSTEM VARIABLES
+   Phase 1: Foundation & Typography
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Local Typography Definitions (@font-face)
+   All fonts are bundled locally in assets/fonts/ with open-source licenses.
+   -------------------------------------------------------------------------- */
+
+/* Daustley: Custom display font for WELCOME */
+@font-face {
+  font-family: 'Daustley';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../assets/fonts/Daustley.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Daustley';
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;
+  src: url('../assets/fonts/Daustley.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Daustley';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/Daustley.otf') format('opentype');
+}
+
+/* Syncopate: Cinematic wide display font for secondary display */
+@font-face {
+  font-family: 'Syncopate';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/Syncopate-Bold.woff2') format('woff2');
+}
+
+/* Space Grotesk: Clean geometric typography for ENTER and UI */
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../assets/fonts/SpaceGrotesk-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/SpaceGrotesk-Bold.woff2') format('woff2');
+}
+
+/* Orbitron: Futuristic railway station signage & telemetry */
+@font-face {
+  font-family: 'Orbitron';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/Orbitron-Bold.woff2') format('woff2');
+}
+
+/* Cinzel: Regal cinematic display serif for future station titles */
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/Cinzel-Bold.woff2') format('woff2');
+}
+
+/* --------------------------------------------------------------------------
+   Design Tokens
+   -------------------------------------------------------------------------- */
+:root {
+  /* Centralized Typography Mapping */
+  --font-display-welcome: 'Syncopate', 'Orbitron', 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-ui-enter:        'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-station-signage: 'Orbitron', monospace, sans-serif;
+  --font-heading:         'Cinzel', serif;
+  --font-project-title:   'Syncopate', sans-serif;
+  --font-body:            'Space Grotesk', sans-serif;
+  --font-tech-label:      'Space Grotesk', monospace, sans-serif;
+  --font-status:          'Space Grotesk', monospace, sans-serif;
+
+  /* Color Palette - Deep Atmospheric Cinema & Railway Neon */
+  --color-bg-base:        #05070b;
+  --color-bg-surface:     #0c1017;
+  --color-bg-overlay:     rgba(5, 7, 11, 0.72);
+  --color-bg-vignette:    radial-gradient(circle at center, rgba(5, 7, 11, 0.4) 0%, rgba(3, 4, 7, 0.88) 85%);
+
+  --color-text-primary:   #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted:     #475569;
+
+  --color-accent-cyan:    #64d2ff;
+  --color-accent-core:    #00e5ff;
+  --color-accent-glow:    rgba(100, 210, 255, 0.35);
+  --color-accent-blue:    #38bdf8;
+  --color-flash-white:    #ffffff;
+  --color-glitch-cyan:    #00f0ff;
+  --color-glitch-magenta: #ff0055;
+
+  /* Button Tokens */
+  --btn-border-default:   rgba(255, 255, 255, 0.22);
+  --btn-border-hover:     rgba(100, 210, 255, 0.75);
+  --btn-bg-hover:         rgba(100, 210, 255, 0.08);
+  --btn-glow-default:     0 0 20px rgba(100, 210, 255, 0.12);
+  --btn-glow-hover:       0 0 32px rgba(100, 210, 255, 0.45), inset 0 0 16px rgba(100, 210, 255, 0.18);
+
+  /* Animation Timings */
+  --ease-cinematic:       cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-glitch:          steps(2, jump-none);
+  --transition-duration:  2000ms;
+
+  /* Layout */
+  --z-video-bg:           1;
+  --z-vignette:           2;
+  --z-wire-lines:         3;
+  --z-welcome-content:    10;
+  --z-flash-overlay:      50;
+  --z-main-scene:         20;
+}
